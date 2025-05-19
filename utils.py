@@ -61,8 +61,9 @@ def transform_image(dataset):
         ]
     )
 
-    dataset["img"] = [transform(x) for x in dataset["image"]]
-    print(dataset)
+    for data in dataset:
+        data["image"] = transform(data["image"])
+
     return dataset
 
 
